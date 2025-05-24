@@ -51,13 +51,13 @@ public class KeySpecificDataProcessor : IDataProcessor
             throw new InvalidOperationException($"Data with key {data.Key} scheduled for KeySpecificDataProcessor with key {ProcessorKey}");
         }
         _IsProcessing = true;
-        await _internalQueue.Writer.WriteAsync(data);
+        await _internalQueue.Writer.WriteAsync(data, cancellationToken);
     }
 
     public async Task StopProcessing()
     {
         _internalQueue.Writer.Complete();
-        if (_processingTask != null)
+        if (_processingTask is not null)
         {
             await _processingTask;
         }

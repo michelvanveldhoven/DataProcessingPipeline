@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataProcessingPipelineV2\DataProcessingPipelineV2.csproj" />
     <ProjectReference Include="..\DataProcessingPipeline\DataProcessingPipeline.csproj" />
   </ItemGroup>
 
